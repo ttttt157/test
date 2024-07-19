@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>Polls</title>
+</head>
+<body>
+	<h1>All Polls</h1>
+	<ul>
+	    <li th:each="poll : ${polls}">
+	        <a th:href="@{/poll/{id}(id=${poll.id})}" th:text="${poll.question}"></a>
+	    </li>
+	</ul>
+	<form th:action="@{/poll}" method="post">
+    <input type="text" name="question" placeholder="New Poll Question" required>
+		<ul id="choices">
+			<li>
+				<input type="text" name="choices[0].text" placeholder="Choice text" required>
+				<input type="hidden" name="choices[0].votes" value="0">
+			</li>
+		</ul>
+		<button type="button" id="addChoice">Add Choice</button>
+    <button type="submit">Create Poll</button>
+	</form>
+	<script type="text/javascript" th:src="@{/js/polls.js}"></script>
+</body>
