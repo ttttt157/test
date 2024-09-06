@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>All Polls</h1>
-	<h1>かさはらはげ！</h1>
+	<h1>かさはらおやすみ！？</h1>
 	<ul>
 	    <li th:each="poll : ${polls}">
 	        <a th:href="@{/poll/{id}(id=${poll.id})}" th:text="${poll.question}"></a>
