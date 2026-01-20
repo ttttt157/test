@@ -6,7 +6,7 @@ services:
       context: .
     # コンテナ名(起動後に指定で使うことある)
     container_name: actix-web-app
-    # ホスト : コンテナ でポート紐づけ
+    # ホスト : コンテナ でポート紐づけa
     ports:
       - "8280:8280"
     # 使用する環境変数ファイル
