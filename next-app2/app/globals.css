@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* New brand color (eye-friendly teal) */
+  --primary: #0ea5a4; /* teal-500 */
+  /* Tailwind uses --color-black for .bg-black utility in compiled CSS; override it */
+  --color-black: var(--primary);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    /* In dark mode, keep primary visible but slightly muted */
+    --primary: #38b2ac; /* teal-400 */
+    --color-black: var(--primary);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Make form focus and primary buttons use the new primary color */
+input:focus, textarea:focus {
+  border-color: var(--primary) !important;
+  box-shadow: none !important;
+}
+
+.btn-primary, .bg-black {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+
+/* Helper class to make borders use primary color */
+.border-primary {
+  border-color: var(--primary) !important;
+}
